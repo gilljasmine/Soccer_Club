@@ -1,0 +1,97 @@
+﻿@model Club
+
+@{
+    ViewData["Title"] = "Club Detail Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div align="center" class="form-style div-style">
+        <h1> Club Details!</h1>
+
+
+        @if (Model != null)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th class="t-style t-style-hover">Club Name</th>
+                        <th class="t-style t-style-hover">Name</th>
+                        <th class="t-style t-style-hover">Age Group</th>
+                        <th class="t-style t-style-hover">Update</th>
+                        <th class="t-style t-style-hover">Delete</th>
+                        <th class="t-style t-style-hover">Add Player</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="t-style t-style-hover">@Model.ClubName</td>
+                        <td class="t-style t-style-hover">@Model.YourName</td>
+                        <td class="t-style t-style-hover">@Model.AgeGroup</td>
+                        <td class="t-style t-style-hover">
+                            <a asp-action="AddClub" asp-route-clubId="@Model.ClubId">
+                                <img src="~/images/update-icon-2.jpg" />
+                            </a>
+                        </td>
+                        <td class="t-style t-style-hover">
+                            <a asp-action="RemoveClub" asp-route-clubId="@Model.ClubId">
+                                <img src="~/images/delete-button.jpg" />
+                            </a>
+                        </td>
+                        <td class="t-style t-style-hover">
+                            <a asp-controller="Player" asp-action="Reassign" asp-route-clubName="@Model.ClubName">Here</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h1> Club Players!</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="t-style t-style-hover">Name</th>
+                        <th class="t-style t-style-hover">Email</th>
+                        <th class="t-style t-style-hover">Age</th>
+                        <th class="t-style t-style-hover">Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Players.Count() > 0)
+                    {
+                        @foreach (Player p in Model.Players)
+                        {
+                            <tr>
+                                <td class="t-style t-style-hover">@p.PlayerName</td>
+                                <td class="t-style t-style-hover">@p.PlayerEmail</td>
+                                <td class="t-style t-style-hover">@p.PlayerAge</td>
+                                <td class="t-style t-style-hover">@p.PlayerNumber</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                <label>No players registered.</label>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h3>Please refer to a club in <a asp-action="ClubList">Club Page</a></h3>
+        }
+
+    </div>
+   
+</body>
+</html>

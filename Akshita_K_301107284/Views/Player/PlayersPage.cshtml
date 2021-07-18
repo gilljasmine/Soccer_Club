@@ -1,0 +1,40 @@
+﻿@model Jasmine_Soccer.Models.Player
+@{
+    ViewData["Title"] = "Add Player";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <form asp-action="PlayersPage" method="post"> 
+        <div class="div-style">
+            <label asp-for="PlayerName">Name of the Player:</label>
+            <input class="form-style" asp-for="PlayerName">
+
+            <label asp-for="PlayerEmail">Your Email:</label>
+            <input class="form-style" asp-for="PlayerEmail">
+
+            <label asp-for="PlayerAge">Your Age:</label>
+            <input class="form-style" asp-for="PlayerAge">
+
+            <label asp-for="PlayerNumber">Your Phone Number:</label>
+            <input class="form-style" asp-for="PlayerNumber">
+
+            <label asp-for="ClubName">Your Club Name:</label>
+            <input class="form-style" asp-for="ClubName">
+            <div align="center">
+                <button class=" submit-style submit-style-hover" type="submit">Register yourself</button>
+                <a class="form-style" asp-action="Reassign">REASSIGN A PLAYER</a>
+                <a class="form-style" asp-action="Delete">DELETE A PLAYER</a>
+            </div>
+        </div>
+    </form>
+   
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿@model Club
+
+     <form asp-action="AddClub" method="post">
+        <input type="hidden" asp-for="@Model.ClubId" />
+        <label asp-for="ClubName">Name of the Club:</label>
+        <input class="form-style" asp-for="ClubName">
+
+        <label asp-for="YourName">Your Name</label>
+        <input class="form-style" asp-for="YourName">
+
+        <label asp-for="AgeGroup">Age Group</label>
+        <input class="form-style" asp-for="AgeGroup">
+
+        <div align="center">
+        <input class="submit-style submit-style-hover"  type="submit" value="Save">
+        <input class="submit-style submit-style-hover"  type="submit" value="Cancel" asp-action="Index" asp-controller="Home" />
+        </div>
+     </form>

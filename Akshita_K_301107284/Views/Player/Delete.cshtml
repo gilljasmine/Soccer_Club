@@ -1,0 +1,23 @@
+﻿@model Jasmine_Soccer.Models.Player
+
+@{
+    ViewData["Title"] = "Reassign Player";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="div-style">
+        <label asp-for="PlayerName">Name of the Player:</label>
+        <input class="form-style" asp-for="PlayerName">
+                   
+        <button class="submit-style submit-style-hover" type="button">Delete Player</button>
+    </div>
+</body>
+</html>

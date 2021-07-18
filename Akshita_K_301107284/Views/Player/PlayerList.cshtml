@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Player>
+
+@{
+    ViewData["Title"] = "Club Detail Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<title>@ViewBag.Title</title>*@
+</head>
+<body>
+    <div align="center">
+        <h1>Here is the list of Players and their Clubs!</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th> Name</th>
+                    <th> Age</th>
+                    <th>     Club</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (Player p in Model)
+                {
+                <tr>
+                    <td>@p.PlayerName</td>
+                    <td>@p.PlayerAge</td>
+                    <td>@p.ClubName</td>
+                </tr>
+                }
+
+        </table>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@model Jasmine_Soccer.Models.Player
+
+@{
+    ViewData["Title"] = "Reassign Player";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    @if (TempData["message"] != null)
+    {
+        <div align="center" class="div-style">
+            @TempData["message"]
+        </div>
+    }
+
+    <form asp-action="Reassign" method="post">
+        <div class="div-style">
+            <label asp-for="PlayerName">Name of the Player:</label>
+            <input class="form-style" asp-for="PlayerName">
+
+            <label asp-for="ClubName">Club of the Player:</label>
+            <input class="form-style" asp-for="ClubName">
+
+            <button type="submit" class="submit-style submit-style-hover">Reassign Player</button>
+        </div>
+    </form>
+</body>
+</html>

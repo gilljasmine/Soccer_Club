@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Club>
+
+@{
+    ViewData["Title"] = "List of clubs!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <div align="center" class=" form-style">
+
+            @if (TempData["message"] != null)
+            {
+                <div align="center" class="div-style">
+                    @TempData["message"]
+                </div>
+            }
+
+            <h1>Here is the list of Clubs you registered!</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="t-style">Club Name</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Club c in Model)
+                    {
+                        <tr>
+                            <td>
+                                <form asp-action="ClubDetails" class="t-style" method="get">
+                                    <input type="hidden" name="clubId" asp-for="@c.ClubId" />
+                                    <button class="div1-style" type="submit">@c.ClubName</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+            </table>
+        </div>
+</body>
+</html>
+

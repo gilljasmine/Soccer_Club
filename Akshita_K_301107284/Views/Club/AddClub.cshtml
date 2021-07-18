@@ -1,0 +1,27 @@
+﻿@model Jasmine_Soccer.Models.Club
+@{
+    ViewData["Title"] = "Add Clubs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    @if (TempData["message"] != null)
+    {
+        <div align="center" class="div-style">
+            @TempData["message"]
+        </div>
+    }
+
+    <div class="div-style">
+        @Html.Partial("AddClubPartial")
+    </div>
+
+</body>
+</html>
